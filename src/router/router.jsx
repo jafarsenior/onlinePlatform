@@ -8,11 +8,19 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import About from "../pages/About";
 
+// Auth Layouts
+import AuthLayout from "../layouts/AuthLayout";
+
 export const router = createBrowserRouter([
   //Landing Pages
   {
     path: "/",
     element: <Landing />,
+  },
+  //Auth Pages with AuthLayout
+  {
+    path: "/auth",
+    element: <AuthLayout />,
   },
   {
     path: "/login",
