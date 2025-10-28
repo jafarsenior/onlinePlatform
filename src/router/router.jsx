@@ -1,48 +1,58 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// Importing Pages and Components
+// Pages
 import App from "../App";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";              // ✅ bu Layout
+import DashboardHome from "../pages/Dashboard/DashboardHome";
+import Planner from "../pages/Dashboard/Planner";
+import Health from "../pages/Dashboard/Health";
+import Finance from "../pages/Dashboard/Finance";
+import Assistent from "../pages/Dashboard/Assistent";
 import About from "../pages/About";
 
-// Auth Layouts
+// Layouts
 import AuthLayout from "../layouts/AuthLayout";
 
 export const router = createBrowserRouter([
-  //Landing Pages
+  // Landing sahifasi
   {
     path: "/",
     element: <Landing />,
   },
-  //Auth Pages with AuthLayout
+
+  // Auth sahifalari
   {
     path: "/auth",
     element: <AuthLayout />,
+    children: [
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+    ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  //Home Pages with Navbar
+
+  // Home (oddiy App)
   {
     path: "/home",
-    element: <App />, // App ichida Navbar va ichki sahifalar
+    element: <App />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
+      { index: true, element: <About /> }, // yoki Home page
+      { path: "about", element: <About /> },
+    ],
+  },
+
+  // Dashboard layout va ichki sahifalar
+  {
+    path: "/dashboard",
+    element: <Dashboard />, // ✅ bu layout sifatida ishlaydi (Navbar + Sidebar + Outlet)
+    children: [
+      { index: true, element: <DashboardHome /> },
+      { path: "planner", element: <Planner /> },
+      { path: "health", element: <Health /> },
+      { path: "finance", element: <Finance /> },
+      { path: "aiassistent", element: <Assistent /> },
     ],
   },
 ]);
