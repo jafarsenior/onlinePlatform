@@ -23,59 +23,54 @@ export default function Login() {
 
     if (res.success) {
       alert(res.message);
-      navigate("/home");
+      navigate("/dashboard");
     } else {
       setError(res.message);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#1E1E1E] text-white px-6">
-      <div className="bg-[#2A2A2A] p-8 rounded-2xl w-full max-w-md shadow-lg border border-[#C5A46D]/30">
-        <h2 className="text-3xl font-bold mb-6 text-center text-[#C5A46D]">Login</h2>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="text-sm text-gray-300">Username</label>
-            <input
-              type="text"
-              className="w-full mt-1 px-4 py-2 rounded-md bg-[#1E1E1E] border border-[#C5A46D]/30 text-white focus:outline-none focus:border-[#C5A46D]"
-              value={form.username}
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
-            />
-          </div>
-
-          <div>
-            <label className="text-sm text-gray-300">Password</label>
-            <input
-              type="password"
-              className="w-full mt-1 px-4 py-2 rounded-md bg-[#1E1E1E] border border-[#C5A46D]/30 text-white focus:outline-none focus:border-[#C5A46D]"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-            />
-          </div>
-
-          {error && <p className="text-red-400 text-sm">{error}</p>}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full mt-3 py-2 bg-[#C5A46D] text-[#1E1E1E] font-semibold rounded-md hover:scale-[1.02] transition"
-          >
-            {loading ? "Yuklanmoqda..." : "Login"}
-          </button>
-        </form>
-
-        <p className="mt-6 text-gray-400 text-sm text-center">
-          Hisobingiz yo‘qmi?{" "}
-          <button
-            onClick={() => navigate("/register")}
-            className="text-[#C5A46D] hover:underline"
-          >
-            Ro‘yxatdan o‘tish
-          </button>
-        </p>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="text-sm text-gray-300">Username</label>
+        <input
+          type="text"
+          className="w-full mt-1 px-4 py-2 rounded-md bg-[#1E1E1E] border border-[#C5A46D]/30 text-white focus:outline-none focus:border-[#C5A46D]"
+          value={form.username}
+          onChange={(e) => setForm({ ...form, username: e.target.value })}
+        />
       </div>
-    </div>
+
+      <div>
+        <label className="text-sm text-gray-300">Password</label>
+        <input
+          type="password"
+          className="w-full mt-1 px-4 py-2 rounded-md bg-[#1E1E1E] border border-[#C5A46D]/30 text-white focus:outline-none focus:border-[#C5A46D]"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
+      </div>
+
+      {error && <p className="text-red-400 text-sm">{error}</p>}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full mt-3 py-2 bg-[#C5A46D] text-[#1E1E1E] font-semibold rounded-md hover:scale-[1.02] transition"
+      >
+        {loading ? "Yuklanmoqda..." : "Login"}
+      </button>
+
+      <p className="mt-6 text-gray-400 text-sm text-center">
+        Hisobingiz yo‘qmi?{" "}
+        <button
+          type="button"
+          onClick={() => navigate("/auth/register")}
+          className="text-[#C5A46D] hover:underline"
+        >
+          Ro‘yxatdan o‘tish
+        </button>
+      </p>
+    </form>
   );
 }

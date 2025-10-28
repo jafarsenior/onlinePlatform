@@ -1,7 +1,6 @@
-// src/layouts/AuthLayout.jsx
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 
-export default function AuthLayout({ children }) {
+export default function AuthLayout() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -10,19 +9,20 @@ export default function AuthLayout({ children }) {
       {/* Top Tabs */}
       <div className="flex gap-4 mb-8 bg-[#2A2A2A] rounded-full p-1">
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/auth/login")}
           className={`px-6 py-2 rounded-full font-medium transition ${
-            pathname === "/login"
+            pathname === "/auth/login"
               ? "bg-[#C5A46D] text-[#1E1E1E]"
               : "text-[#C5A46D] hover:bg-[#C5A46D]/20"
           }`}
         >
           Login
         </button>
+
         <button
-          onClick={() => navigate("/register")}
+          onClick={() => navigate("/auth/register")}
           className={`px-6 py-2 rounded-full font-medium transition ${
-            pathname === "/register"
+            pathname === "/auth/register"
               ? "bg-[#C5A46D] text-[#1E1E1E]"
               : "text-[#C5A46D] hover:bg-[#C5A46D]/20"
           }`}
@@ -31,9 +31,9 @@ export default function AuthLayout({ children }) {
         </button>
       </div>
 
-      {/* Card */}
+      {/* Auth Card */}
       <div className="w-full max-w-md bg-[#2A2A2A]/70 p-8 rounded-2xl shadow-xl border border-[#C5A46D]/20 backdrop-blur-md">
-        {children}
+        <Outlet /> {/* 🔥 Bu joyda Login yoki Register chiqadi */}
       </div>
     </div>
   );

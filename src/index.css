@@ -1,1 +1,61 @@
 @import "tailwindcss";
+
+
+/* src/index.css yoki App.css ichiga joylashtir */
+.fc-theme-standard td, 
+.fc-theme-standard th {
+    padding: 8px !important;
+  border-color: #C5A46D !important; /* Gold border */
+}
+
+.fc-daygrid-day, 
+.fc-timegrid-slot {
+  border-color: #C5A46D !important;
+}
+
+.fc-scrollgrid {
+  border-color: #C5A46D !important;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  background-color: #1E1E1E !important; /* Dark background */
+}
+
+.fc-toolbar-title {
+  color: #C5A46D !important;
+}
+
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number {
+  color: #C5A46D !important;
+}
+
+
+/* 🔹 FullCalendar navigatsiya tugmalari (oldingi / keyingi oy) */
+.fc .fc-button {
+  background-color: transparent !important;
+  border: 1px solid #C5A46D !important;
+  color: #C5A46D !important;
+  transition: all 0.3s ease;
+}
+
+.fc .fc-button:hover {
+  background-color: #C5A46D !important;
+  color: #1E1E1E !important;
+}
+
+.fc .fc-button-primary:disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+}
+
+/* 🔹 "Today" tugmasi */
+.fc .fc-today-button {
+  background-color: #C5A46D !important;
+  color: #1E1E1E !important;
+  border: none !important;
+}
+
+.fc .fc-today-button:hover {
+  background-color: #e2b76a !important;
+}

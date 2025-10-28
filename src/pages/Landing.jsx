@@ -32,7 +32,7 @@ export default function Landing() {
               Aloqa
             </button>
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/auth/login")}
               className="px-4 py-2 rounded-md bg-[#C5A46D] text-[#1E1E1E] font-semibold hover:scale-105 transition"
             >
               Kirish
@@ -55,13 +55,13 @@ export default function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <button
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/auth/login")}
                 className="w-full sm:w-auto px-6 py-3 rounded-md bg-[#C5A46D] text-[#1E1E1E] font-medium shadow-md transform transition hover:scale-[1.02]"
               >
                 Login
               </button>
               <button
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/auth/register")}
                 className="w-full sm:w-auto px-6 py-3 rounded-md border border-[#C5A46D] text-[#C5A46D] font-medium hover:bg-[#C5A46D] hover:text-[#1E1E1E] transition"
               >
                 Register

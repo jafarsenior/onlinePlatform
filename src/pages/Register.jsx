@@ -22,11 +22,12 @@ export default function Register() {
     setLoading(false);
 
     if (res.success) {
-      alert(res.message);
-      navigate("/login");
-    } else {
-      setError(res.message);
-    }
+  alert(res.message);
+  navigate("/auth/login"); // ✅ to'g'ri path
+} else {
+  setError(res.message);
+}
+
   };
 
   return (
@@ -89,7 +90,7 @@ export default function Register() {
         <p className="mt-6 text-gray-400 text-sm text-center">
           Hisobingiz bormi?{" "}
           <button
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/auth/login")}
             className="text-[#C5A46D] hover:underline"
           >
             Login
