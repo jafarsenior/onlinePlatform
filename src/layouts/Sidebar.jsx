@@ -4,53 +4,139 @@ import { NavLink } from "react-router-dom";
 // --- SVG ICONLAR ---
 const Icons = {
   Dashboard: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <rect x="3" y="3" width="7" height="7"></rect>
       <rect x="14" y="3" width="7" height="7"></rect>
       <rect x="14" y="14" width="7" height="7"></rect>
       <rect x="3" y="14" width="7" height="7"></rect>
     </svg>
   ),
-  Table: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-      <line x1="3" y1="9" x2="21" y2="9"></line>
-      <line x1="3" y1="15" x2="21" y2="15"></line>
-      <line x1="9" y1="3" x2="9" y2="21"></line>
-      <line x1="15" y1="3" x2="15" y2="21"></line>
+  Planner: () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* Calendar frame */}
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+      {/* Checkmark inside calendar */}
+      <path d="M9 15l2 2 4-4"></path>
     </svg>
   ),
-  File: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-      <polyline points="14 2 14 8 20 8"></polyline>
-      <line x1="16" y1="13" x2="8" y2="13"></line>
-      <line x1="16" y1="17" x2="8" y2="17"></line>
+
+  Assistent: () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* stylized robot head with spark / brain hint */}
+      <rect x="3" y="3" width="18" height="14" rx="2" ry="2"></rect>
+      <path d="M8 8h0" /> {/* left eye (dot) */}
+      <path d="M16 8h0" /> {/* right eye (dot) */}
+      <path d="M8 14h8" /> {/* mouth line */}
+      {/* antenna / spark */}
+      <line x1="12" y1="3" x2="12" y2="1" />
+      <circle cx="12" cy="1" r="1.2" />
+      {/* subtle circuit/brain hint */}
+      <path d="M6 12c1-2 3-2 4-1s2 2 4 1 3-2 4-1" />
     </svg>
   ),
-  Branch: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <line x1="6" y1="3" x2="6" y2="15"></line>
-      <circle cx="18" cy="6" r="3"></circle>
-      <circle cx="6" cy="18" r="3"></circle>
-      <path d="M18 9a9 9 0 0 1-9 9"></path>
+
+  Finance: () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* Bar chart */}
+      <line x1="4" y1="20" x2="4" y2="10"></line>
+      <line x1="10" y1="20" x2="10" y2="4"></line>
+      <line x1="16" y1="20" x2="16" y2="14"></line>
+
+      {/* Dollar symbol */}
+      <path d="M20 7c0-2-2-3-4-3s-4 1-4 3 2 3 4 3 4 1 4 3-2 3-4 3-4-1-4-3" />
+      <line x1="16" y1="2" x2="16" y2="22"></line>
     </svg>
   ),
+
+  Health: () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z" />
+      <polyline points="3 12 8 12 10 9 14 15 16 12 21 12" />
+    </svg>
+  ),
+
   User: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
       <circle cx="12" cy="7" r="4"></circle>
     </svg>
   ),
   LogIn: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
       <polyline points="10 17 15 12 10 7"></polyline>
       <line x1="15" y1="12" x2="3" y2="12"></line>
     </svg>
   ),
   X: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
@@ -59,10 +145,10 @@ const Icons = {
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
-    { icon: "Table", label: "Planner", section: "main" },
-    { icon: "File", label: "AI Assistent", section: "main" },
-    { icon: "Branch", label: "Health", section: "main" },
-    { icon: "Branch", label: "Finance", section: "main" },
+    { icon: "Planner", label: "Planner", section: "main" },
+    { icon: "Assistent", label: "AI Assistent", section: "main" },
+    { icon: "Health", label: "Health", section: "main" },
+    { icon: "Finance", label: "Finance", section: "main" },
     { icon: "User", label: "Profile", section: "account" },
     { icon: "LogIn", label: "Settings", section: "account" },
   ];
@@ -71,7 +157,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     <>
       {/* Overlay for mobile */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={toggleSidebar} />
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={toggleSidebar}
+        />
       )}
 
       {/* Sidebar */}
@@ -88,7 +177,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 <div className="w-8 h-8 bg-[#C5A46D] rounded-lg" />
                 LifeOS
               </h1>
-              <button onClick={toggleSidebar} className="lg:hidden text-[#C5A46D]">
+              <button
+                onClick={toggleSidebar}
+                className="lg:hidden text-[#C5A46D]"
+              >
                 <Icons.X />
               </button>
             </div>
@@ -119,7 +211,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     return (
                       <NavLink
                         key={item.label}
-                        to={`/dashboard/${item.label.toLowerCase().replace(/\s+/g, "")}`}
+                        to={`/dashboard/${item.label
+                          .toLowerCase()
+                          .replace(/\s+/g, "")}`}
                         className={({ isActive }) =>
                           `w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             isActive
@@ -146,7 +240,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     return (
                       <NavLink
                         key={item.label}
-                        to={`/dashboard/${item.label.toLowerCase().replace(/\s+/g, "")}`}
+                        to={`/dashboard/${item.label
+                          .toLowerCase()
+                          .replace(/\s+/g, "")}`}
                         className={({ isActive }) =>
                           `w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                             isActive
