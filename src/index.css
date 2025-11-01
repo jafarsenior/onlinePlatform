@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
-
-/* src/index.css yoki App.css ichiga joylashtir */
+/* 🔹 Base FullCalendar Styling */
 .fc-theme-standard td, 
 .fc-theme-standard th {
-    padding: 8px !important;
+  padding: 8px !important;
   border-color: #C5A46D !important; /* Gold border */
 }
 
@@ -17,21 +16,33 @@
   border-color: #C5A46D !important;
 }
 
+/* 🔹 Light mode background */
 .fc-theme-standard .fc-scrollgrid {
-  background-color: #1E1E1E !important; /* Dark background */
+  background-color: #ffffff !important;
 }
 
+/* 🔹 Dark mode background */
+.dark .fc-theme-standard .fc-scrollgrid {
+  background-color: #1E1E1E !important;
+}
+
+/* 🔹 Toolbar title */
 .fc-toolbar-title {
   color: #C5A46D !important;
 }
 
+/* 🔹 Column headers and day numbers */
 .fc-col-header-cell-cushion,
 .fc-daygrid-day-number {
   color: #C5A46D !important;
 }
 
+.dark .fc-col-header-cell-cushion,
+.dark .fc-daygrid-day-number {
+  color: #C5A46D !important;
+}
 
-/* 🔹 FullCalendar navigatsiya tugmalari (oldingi / keyingi oy) */
+/* 🔹 Navigation buttons */
 .fc .fc-button {
   background-color: transparent !important;
   border: 1px solid #C5A46D !important;
@@ -49,7 +60,7 @@
   cursor: not-allowed !important;
 }
 
-/* 🔹 "Today" tugmasi */
+/* 🔹 Today button */
 .fc .fc-today-button {
   background-color: #C5A46D !important;
   color: #1E1E1E !important;
@@ -58,4 +69,78 @@
 
 .fc .fc-today-button:hover {
   background-color: #e2b76a !important;
+}
+
+/* 🔹 Event styling */
+.fc-event {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  padding: 4px 6px !important;
+  cursor: pointer;
+}
+
+.dark .fc-event {
+  background-color: #C5A46D !important;
+  color: #1E1E1E !important;
+}
+
+.fc-event {
+  background-color: #FACC15 !important;
+  color: #1E1E1E !important;
+}
+
+/* 🔹 Slot label styling */
+.fc .fc-timegrid-slot-label {
+  color: #6B7280 !important; /* Gray-400 for light */
+}
+
+.dark .fc .fc-timegrid-slot-label {
+  color: #9CA3AF !important; /* Gray-400 for dark */
+}
+
+/* 🔹 Responsive for small screens (350px + mobile) */
+@media (max-width: 350px) {
+  .fc .fc-toolbar,
+  .fc .fc-toolbar-chunk {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    text-align: center !important;
+  }
+
+  .fc .fc-button {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    font-size: 0.65rem !important;
+  }
+
+  .fc-daygrid-day-number {
+    font-size: 0.65rem !important;
+  }
+
+  .fc .fc-event {
+    font-size: 0.7rem !important;
+    padding: 2px 4px !important;
+  }
+}
+
+/* 🔹 Scrollbar for dark mode */
+.dark .fc-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: #C5A46D #1E1E1E;
+}
+
+.dark .fc-scroller::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dark .fc-scroller::-webkit-scrollbar-thumb {
+  background-color: #C5A46D;
+  border-radius: 3px;
+}
+
+.dark .fc-scroller::-webkit-scrollbar-track {
+  background: #1E1E1E;
 }

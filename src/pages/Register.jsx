@@ -31,8 +31,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#1E1E1E] text-white px-6">
-      <div className="bg-[#2A2A2A] p-8 rounded-2xl w-full max-w-md shadow-lg border border-[#C5A46D]/30">
+      <div>
         <h2 className="text-3xl font-bold mb-6 text-center text-[#C5A46D]">Register</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -97,6 +96,5 @@ export default function Register() {
           </button>
         </p>
       </div>
-    </div>
   );
 }
