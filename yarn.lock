@@ -262,46 +262,12 @@
   resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.19.tgz"
   integrity sha512-IAAfnMICnVWPjpT4zi87i3FEw0xxSza0avqY/HedKEz+l5MTBYvCDPOWDATpzXoLut3aACsjktIyw9thvIcRYQ==
 
-"@fullcalendar/interaction@^6.1.19":
-  version "6.1.19"
-  resolved "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-6.1.19.tgz"
-  integrity sha512-GOciy79xe8JMVp+1evAU3ytdwN/7tv35t5i1vFkifiuWcQMLC/JnLg/RA2s4sYmQwoYhTw/p4GLcP0gO5B3X5w==
-
-"@fullcalendar/premium-common@~6.1.19":
-  version "6.1.19"
-  resolved "https://registry.npmjs.org/@fullcalendar/premium-common/-/premium-common-6.1.19.tgz"
-  integrity sha512-bOWHm1u1dUy6M4fQ0hNK7qEI7SrVWrN1ovv/z4/FE/ybfM19ukz7SFs907Ur7KUBWLNKTQYXBtdrY/ginwWraw==
-
 "@fullcalendar/react@^6.1.19":
   version "6.1.19"
   resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-6.1.19.tgz"
   integrity sha512-FP78vnyylaL/btZeHig8LQgfHgfwxLaIG6sKbNkzkPkKEACv11UyyBoTSkaavPsHtXvAkcTED1l7TOunAyPEnA==
 
-"@fullcalendar/resource-daygrid@~6.1.19":
-  version "6.1.19"
-  resolved "https://registry.npmjs.org/@fullcalendar/resource-daygrid/-/resource-daygrid-6.1.19.tgz"
-  integrity sha512-ylcPQwxwbMS4sIvhwJltNWUZhCinD/IhsYvIxfv/wXb0UBds8d9zacPEjcRRKiXShXj/95W/YWVF+9JcCiRfIQ==
-  dependencies:
-    "@fullcalendar/daygrid" "~6.1.19"
-    "@fullcalendar/premium-common" "~6.1.19"
-
-"@fullcalendar/resource-timegrid@^6.1.19":
-  version "6.1.19"
-  resolved "https://registry.npmjs.org/@fullcalendar/resource-timegrid/-/resource-timegrid-6.1.19.tgz"
-  integrity sha512-Y16w/Z28gZwAVxVKmicKjbaSY4DixV9canEeY2A09Ka3golaxSrTDQ72PMbxzPGEMv3S7HaqDojofNsfh+wH/g==
-  dependencies:
-    "@fullcalendar/premium-common" "~6.1.19"
-    "@fullcalendar/resource-daygrid" "~6.1.19"
-    "@fullcalendar/timegrid" "~6.1.19"
-
-"@fullcalendar/resource@~6.1.19":
-  version "6.1.19"
-  resolved "https://registry.npmjs.org/@fullcalendar/resource/-/resource-6.1.19.tgz"
-  integrity sha512-br1ylX/aIOfd8m7Tzl2LpJBSI+N9Q6aS1qw7K9qnQjYXWQyHBlfLG6ZcPmmkjfaqTUJc8ARRbtNWj1ts5qOZgQ==
-  dependencies:
-    "@fullcalendar/premium-common" "~6.1.19"
-
-"@fullcalendar/timegrid@^6.1.19", "@fullcalendar/timegrid@~6.1.19":
+"@fullcalendar/timegrid@^6.1.19":
   version "6.1.19"
   resolved "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-6.1.19.tgz"
   integrity sha512-OuzpUueyO9wB5OZ8rs7TWIoqvu4v3yEqdDxZ2VcsMldCpYJRiOe7yHWKr4ap5Tb0fs7Rjbserc/b6Nt7ol6BRg==
@@ -1040,21 +1006,6 @@ framer-motion@^12.23.24:
     motion-utils "^12.23.6"
     tslib "^2.4.0"
 
-fullcalendar-common@~5.3.2:
-  version "5.3.2"
-  resolved "https://registry.npmjs.org/fullcalendar-common/-/fullcalendar-common-5.3.2.tgz"
-  integrity sha512-uXeZGM93WL/E0AAIvXtMEqDj8BHYOP4dtf4Q7olIpnL6RF8rb01ptbhhuZh+fMTxkLkO936QgJjTeWdGk77Ssg==
-  dependencies:
-    tslib "^2.0.0"
-
-fullcalendar-daygrid@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.npmjs.org/fullcalendar-daygrid/-/fullcalendar-daygrid-5.3.3.tgz"
-  integrity sha512-oIMQCV54vvh2Vqetz3bzyR0UIgNLi+vWKirbpWAHvLQCzaIcwpoZCa1GK9jo7HgahdBNsUqS3OdeleX+cLYcJg==
-  dependencies:
-    fullcalendar-common "~5.3.2"
-    tslib "^2.0.0"
-
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
@@ -1584,7 +1535,7 @@ tinyglobby@^0.2.15:
     fdir "^6.5.0"
     picomatch "^4.0.3"
 
-tslib@^2.0.0, tslib@^2.4.0:
+tslib@^2.4.0:
   version "2.8.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
