@@ -1,5 +1,6 @@
 // src/components/charts/DashboardCharts.jsx
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -15,14 +16,6 @@ import {
   Cell,
   Legend,
 } from "recharts";
-
-/**
- * Dark + Gold theme:
- * bg: #1E1E1E
- * gold: #C5A46D
- * accent darker gold: #8B6F3D
- * muted: rgba(197,164,109,0.25)
- */
 
 // ----- MOCK DATA -----
 const salesData = [
@@ -59,27 +52,51 @@ const referralsData = [
 
 const COLORS = ["#C5A46D", "#8B6F3D", "#D8BE86", "#6F5A2B"];
 
-// ----- SMALL CARD WRAPPER -----
-const Card = ({ title, subtitle, children }) => (
-  <div className="bg-[#1E1E1E] border border-[#C5A46D]/10 rounded-2xl p-4 shadow-sm">
-    <div className="flex items-center justify-between mb-3">
-      <div>
-        <h3 className="text-[#C5A46D] font-semibold">{title}</h3>
-        {subtitle && <p className="text-[#C5A46D]/70 text-sm">{subtitle}</p>}
-      </div>
-    </div>
-    <div style={{ height: 220 }}>{children}</div>
-  </div>
-);
+// ----- CARD WRAPPER -----
+const Card = ({ title, subtitle, children, darkMode }) => {
+  const bgColor = darkMode
+    ? "bg-[#1E1E1E] border-[#C5A46D]/10"
+    : "bg-white border-gray-200";
+  const textColor = darkMode ? "text-[#C5A46D]" : "text-gray-800";
 
-// ----- CHARTS -----
-export default function DashboardHome() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {/* Area: Sales */}
-      <Card title="Sales overview" subtitle="Monthly sales (mock data)">
+    <div className={`border rounded-2xl p-4 shadow-sm ${bgColor}`}>
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h3 className={`${textColor} font-semibold`}>{title}</h3>
+          {subtitle && (
+            <p className={`${textColor} opacity-70 text-sm`}>{subtitle}</p>
+          )}
+        </div>
+      </div>
+      <div style={{ height: 220 }}>{children}</div>
+    </div>
+  );
+};
+
+// ----- MAIN DASHBOARD -----
+export default function DashboardCharts() {
+  const { darkMode } = useContext(ThemeContext);
+
+  const axisColor = darkMode ? "#C5A46D" : "#444";
+  const tooltipBg = darkMode ? "#2A2A2A" : "#f5f5f5";
+  const tooltipText = darkMode ? "#C5A46D" : "#333";
+  const gridStroke = darkMode ? "#ffffff10" : "#00000010";
+  const barColor = darkMode ? "#C5A46D" : "#8B6F3D";
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-9">
+      {/* --- Area: Sales --- */}
+      <Card
+        title="Sales overview"
+        subtitle="Monthly sales (mock data)"
+        darkMode={darkMode}
+      >
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={salesData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+          <AreaChart
+            data={salesData}
+            margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+          >
             <defs>
               <linearGradient id="goldGradient" x1="0" x2="0" y1="0" y2="1">
                 <stop offset="0%" stopColor="#C5A46D" stopOpacity={0.26} />
@@ -87,12 +104,23 @@ export default function DashboardHome() {
               </linearGradient>
             </defs>
 
-            <CartesianGrid stroke="#ffffff10" vertical={false} />
-            <XAxis dataKey="month" tick={{ fill: "#C5A46D", fontSize: 12 }} />
-            <YAxis tick={{ fill: "#C5A46D", fontSize: 12 }} />
+            <CartesianGrid stroke={gridStroke} vertical={false} />
+            <XAxis
+              dataKey="month"
+              tick={{ fill: axisColor, fontSize: 12 }}
+              axisLine={{ stroke: gridStroke }}
+            />
+            <YAxis
+              tick={{ fill: axisColor, fontSize: 12 }}
+              axisLine={{ stroke: gridStroke }}
+            />
             <Tooltip
-              contentStyle={{ background: "#2A2A2A", border: "none", color: "#C5A46D" }}
-              itemStyle={{ color: "#C5A46D" }}
+              contentStyle={{
+                background: tooltipBg,
+                border: "none",
+                color: tooltipText,
+              }}
+              itemStyle={{ color: tooltipText }}
             />
             <Area
               type="monotone"
@@ -105,31 +133,56 @@ export default function DashboardHome() {
         </ResponsiveContainer>
       </Card>
 
-      {/* Bar: Active Users */}
-      <Card title="Active users" subtitle="Users by day">
+      {/* --- Bar: Active Users --- */}
+      <Card title="Active users" subtitle="Users by day" darkMode={darkMode}>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={usersData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
-            <CartesianGrid stroke="#ffffff10" vertical={false} />
-            <XAxis dataKey="day" tick={{ fill: "#C5A46D", fontSize: 12 }} />
-            <YAxis tick={{ fill: "#C5A46D", fontSize: 12 }} />
-            <Tooltip
-              contentStyle={{ background: "#2A2A2A", border: "none", color: "#C5A46D" }}
-              itemStyle={{ color: "#C5A46D" }}
+          <BarChart
+            data={usersData}
+            margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
+          >
+            <CartesianGrid stroke={gridStroke} vertical={false} />
+            <XAxis
+              dataKey="day"
+              tick={{ fill: axisColor, fontSize: 12 }}
+              axisLine={{ stroke: gridStroke }}
             />
-            <Bar dataKey="users" radius={[6, 6, 0, 0]} fill="#C5A46D" />
+            <YAxis
+              tick={{ fill: axisColor, fontSize: 12 }}
+              axisLine={{ stroke: gridStroke }}
+            />
+            <Tooltip
+              contentStyle={{
+                background: tooltipBg,
+                border: "none",
+                color: tooltipText,
+              }}
+              itemStyle={{ color: tooltipText }}
+            />
+            <Bar dataKey="users" radius={[6, 6, 0, 0]} fill={barColor} />
           </BarChart>
         </ResponsiveContainer>
       </Card>
 
-      {/* Donut: Referrals */}
-      <Card title="Referral sources" subtitle="Where users come from">
+      {/* --- Pie: Referrals --- */}
+      <Card
+        title="Referral sources"
+        subtitle="Where users come from"
+        darkMode={darkMode}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Tooltip
-              contentStyle={{ background: "#2A2A2A", border: "none", color: "#C5A46D" }}
-              itemStyle={{ color: "#C5A46D" }}
+              contentStyle={{
+                background: tooltipBg,
+                border: "none",
+                color: tooltipText,
+              }}
+              itemStyle={{ color: tooltipText }}
             />
-            <Legend verticalAlign="bottom" wrapperStyle={{ color: "#C5A46D" }} />
+            <Legend
+              verticalAlign="bottom"
+              wrapperStyle={{ color: axisColor, fontSize: 12 }}
+            />
             <Pie
               data={referralsData}
               innerRadius={50}

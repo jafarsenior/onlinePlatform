@@ -1,19 +1,30 @@
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function AuthLayout() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { darkMode } = useContext(ThemeContext);
+
+  const bgMain = darkMode ? "bg-[#1E1E1E]" : "bg-[#F8F8F8]";
+  const textMain = darkMode ? "text-white" : "text-gray-800";
+  const cardBg = darkMode
+    ? "bg-[#2A2A2A]/70 border-[#C5A46D]/20"
+    : "bg-white border-[#C5A46D]/30";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#1E1E1E] text-white px-6">
+    <div className={`min-h-screen flex flex-col items-center justify-center px-6 ${bgMain} ${textMain} transition-colors duration-300 pt-10`}>
       {/* Top Tabs */}
-      <div className="flex gap-4 mb-8 bg-[#2A2A2A] rounded-full p-1">
+      <div className={`flex gap-4 rounded-full p-1 shadow-sm transition-colors duration-300 ${darkMode ? "bg-[#2A2A2A] border border-[#C5A46D]/30" : "bg-white border border-[#C5A46D]/30"}`}>
         <button
           onClick={() => navigate("/auth/login")}
-          className={`px-6 py-2 rounded-full font-medium transition ${
+          className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
             pathname === "/auth/login"
-              ? "bg-[#C5A46D] text-[#1E1E1E]"
-              : "text-[#C5A46D] hover:bg-[#C5A46D]/20"
+              ? "bg-gradient-to-r from-[#C5A46D] to-[#b8914f] text-white shadow-md"
+              : darkMode
+              ? "text-[#C5A46D] hover:bg-[#C5A46D]/20"
+              : "text-[#C5A46D] hover:bg-[#C5A46D]/10"
           }`}
         >
           Login
@@ -21,10 +32,12 @@ export default function AuthLayout() {
 
         <button
           onClick={() => navigate("/auth/register")}
-          className={`px-6 py-2 rounded-full font-medium transition ${
+          className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
             pathname === "/auth/register"
-              ? "bg-[#C5A46D] text-[#1E1E1E]"
-              : "text-[#C5A46D] hover:bg-[#C5A46D]/20"
+              ? "bg-gradient-to-r from-[#C5A46D] to-[#b8914f] text-white shadow-md"
+              : darkMode
+              ? "text-[#C5A46D] hover:bg-[#C5A46D]/20"
+              : "text-[#C5A46D] hover:bg-[#C5A46D]/10"
           }`}
         >
           Register
@@ -32,7 +45,7 @@ export default function AuthLayout() {
       </div>
 
       {/* Auth Card */}
-      <div className="w-full max-w-md bg-[#2A2A2A]/70 p-8 rounded-2xl shadow-xl border border-[#C5A46D]/20 backdrop-blur-md">
+      <div>
         <Outlet /> {/* 🔥 Bu joyda Login yoki Register chiqadi */}
       </div>
     </div>
